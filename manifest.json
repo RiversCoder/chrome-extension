@@ -1,15 +1,54 @@
-{
-    "name": "music player",
-    "description": "山村的谷歌浏览器音乐扩展插件",
-    "version": "1.0.0",
-    "manifest_version": 2,
-    "browser_action": {
-        "default_action": {
-            "16": "images/icon16.png",
-            "48": "images/icon48.png",
-            "128": "images/icon128.png"
-        },
-        "default_title": "Google Extension",
-        "default_popup": "html/popup.html"
-    }
+{  
+  "name": "MyTaskList",  
+  "version": "0.9.0",  
+  "description": "Management my everyday's task lists.",  
+  "manifest_version": 2,
+  "icons": {
+  	"16":"images/icon16.png",
+  	"48":"images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "background": {
+  	"scripts": ["js/background.js"]
+  },
+  "browser_action":{
+  	"default_icon": "images/icon16.png",
+  	"default_title": "这是一个示例Chrome插件",
+  	"default_popup": "popup.html"
+  },
+  "content_scripts":[{
+		"matches": ["http://blog.sina.com.cn/*","https://*.baidu.com/*"],
+		"js": ["js/jquery.min.js", "js/content-script.js"],
+		"css":["css/mystyles.css"],
+		"run_at": "document_start"
+  }],
+  "homepage_url": "https://www.baidu.com",
+  "permissions":
+	[
+	    "contextMenus", // 右键菜单
+	    "tabs", // 标签
+	    "notifications", // 通知
+	    "webRequest", // web请求
+	    "webRequestBlocking",
+	    "storage", // 插件本地存储
+	    "http://*/*", // 可以通过executeScript或者insertCSS访问的网站
+	    "https://*/*" // 可以通过executeScript或者insertCSS访问的网站
+	],
+	"web_accessible_resources": ["js/inject.js"],
+	"chrome_url_overrides":
+    {
+        // 覆盖浏览器默认的新标签页
+        "newtab": "newtab.html"
+    },
+    // Chrome40以后的插件配置页写法，如果2个都写，新版Chrome只认后面这一个
+    "options_ui":
+    {
+        "page": "options.html",
+        // 添加一些默认的样式，推荐使用
+        "chrome_style": true
+    },
+    // 向地址栏注册一个关键字以提供搜索建议，只能设置一个关键字
+    "omnibox": { "keyword" : "go" },
+    // devtools页面入口，注意只能指向一个HTML文件，不能是JS文件
+    "devtools_page": "devtools.html"
 }
