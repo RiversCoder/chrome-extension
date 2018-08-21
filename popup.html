@@ -5,10 +5,31 @@
 	<title></title>
 </head>
 <body>
-	<h3>这是一个popup.html页面</h3>
-	<script type="text/javascript">
-		var w = chrome.extension.getBackgroundPage();
-		console.log(w);
-	</script>
+	
+<style type="text/css">
+*{margin:0;padding:0;}
+body{color:#333;overflow: hidden;margin: 0px;padding:5px;background: white;font-size:12px;}
+.wrapper_box{width:300px;height:180px;}
+img{margin:0 4px;}
+#addItemDiv{color:#ccc;}
+.hide{display:none;}
+.show{display:block;}
+.taskItem{cursor:pointer;}
+input{width:100%;}
+label.on{width:12px; display:inline-block; height:12px; background:url(images/bg_task_on.gif) no-repeat 0px 2px;}
+label.off{width:12px; display:inline-block; height:12px; background:url(images/bg_task_off.gif) no-repeat 0px 2px;}
+</style>
+<div class="wrapper_box">
+    <div id="newItem" class="gray">添加新项</div>
+    <div id="addDiv" class="hide"><input type="text" id="txtTitle" /></div>
+    <div id="taskItemList">
+        <div class="taskItem">
+            <label class="on"></label><span class="taskTitle">新任务</span>
+        </div>
+        <div class="taskItem">
+            <label class="off"></label><span class="taskTitle">已完成任务</span>
+        </div>
+    </div>
+</div>
 </body>
 </html>

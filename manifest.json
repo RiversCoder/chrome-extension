@@ -1,5 +1,5 @@
 {  
-  "name": "MyTaskList",  
+  "name": "my music player",  
   "version": "0.9.0",  
   "description": "Management my everyday's task lists.",  
   "manifest_version": 2,
@@ -17,10 +17,10 @@
   	"default_popup": "popup.html"
   },
   "content_scripts":[{
-		"matches": ["http://blog.sina.com.cn/*","https://*.baidu.com/*"],
+		"matches": ["http://*/*","https://*/*"],
 		"js": ["js/jquery.min.js", "js/content-script.js"],
 		"css":["css/mystyles.css"],
-		"run_at": "document_start"
+		"run_at": "document_end"
   }],
   "homepage_url": "https://www.baidu.com",
   "permissions":
