@@ -12,6 +12,7 @@ chrome.runtime.onInstalled.addListener(function() {
 
 function updateIcon() {
 
+  //创建一个通知面板
   chrome.notifications.create(
     Math.random()+'',  // id
     {
@@ -30,6 +31,21 @@ function updateIcon() {
     }    
   );
 
+  //点击了通知面板其他地方
+  chrome.notifications.onClicked.addListener(()=>{
+    console.log('点击面板内除按钮的其他地方!');
+  });
+
+    //获取所有的通知
+  chrome.notifications.getAll(function(object,notifications){
+    console.log(object,notifications);
+  });
+
+  //点击了通知面板关闭按钮
+  chrome.notifications.onClosed.addListener(function(){
+    console.log('点击了关闭按钮!');
+  });
+
   chrome.storage.sync.get('number', function(data) {
     var current = data.number;
     chrome.browserAction.setIcon({path: 'icon' + current + '.png'});
@@ -40,6 +56,7 @@ function updateIcon() {
       console.log('The number is set to ' + current);
     });
   });
+
 };
 
 chrome.browserAction.onClicked.addListener(updateIcon);
