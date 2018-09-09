@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Set Page Color Popup</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"" />
+    <style>
+    body {
+      overflow: hidden;
+      margin: 0px;
+      padding: 0px;
+      background: white;
+    }
+    .wrapper{ width:500px;height:auto; background-color:white;display:flex;flex-wrap: wrap;justify-content: space-around;align-content: flex-start;padding-bottom: 20px;}
+    .wrapper:hover{  background-color:white ;  }
+    .wrapper .box{ width:90px;height:50px;  margin-top:10px}
+    .wrapper .box img{ width:100%; height:100%; }
+    .formBox{ width:90%;margin:0 auto; margin-top:20px;}
+
+    .content-wrap{ list-style: none;width:100%;height:auto;position: relative;top:0;left:0; padding-left: 0; column-count: 4; column-gap: 0;}
+    .img-container{ width:96%;margin:0 auto; height:400px;padding:0;overflow-y: auto;}
+    .cw-box{width:100%;height:auto;break-inside: avoid; box-sizing: border-box; padding: 5px;transform: scale(.9);cursor: pointer;transition:.3s ease;}
+    .cw-box:hover{transform:scale(1);border:1px solid #ddd;}
+    .cw-box img{width:100%;height:100%;}  
+
+    .img-container::-webkit-scrollbar{ width:6px;height:100%;background:#eee;border:none;border-radius:3px;}
+    .img-container::-webkit-scrollbar-thumb{ background:#ddd;border-radius:3px;  } 
+
+    .wrapper .panel-title{  text-align:left; width:100%; text-indent: 23px; font-size: 13px;}
+    </style>
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/popup.js"></script>
+  </head>
+  <body>
+
+    <div class="wrapper" id="wrapper">
+
+      <!-- 表单输入框 -->
+      <div class="formBox">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-10"> 
+              <input type="text" class="form-control" id="searchContent" 
+               placeholder="请输入搜索内容" value="林允儿" />
+             </div>
+            <div class="col-xs-2">
+                <button type="button" class="btn btn-success searchBtn">搜索</button>
+            </div>      
+         </div>
+        </div>
+      </div>
+
+     
+     <span class="panel-title">
+       搜索结果：
+     </span>
+
+      <!-- 图片吗展示内容 -->
+      <div class="container img-container">
+        <ul class="content-wrap">
+          <!-- <li class="cw-box">
+            <img src="images/1.jpg" class="cw-box-img" />
+          </li> -->
+        </ul>
+      </div>
+
+    </div>
+
+  </body>
+</html>
