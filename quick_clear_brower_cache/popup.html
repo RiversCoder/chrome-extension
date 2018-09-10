@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Popup</title>
+    <meta charset="utf-8">
+    <link href="popup.css" rel="stylesheet">
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <h1>清除浏览器缓存数据</h1>
+    <div role="main">
+      <form>
+        <label for="timeframe">请选择要清除的时间段</label>
+        <select id="timeframe">
+          <option value="hour">一个小时前</option>
+          <option value="day">一天前</option>
+          <option value="week">一周前</option>
+          <option value="4weeks">四周前</option>
+          <option value="forever">所有时间段</option>
+        </select>
+        <button id="button">点击清除!</button>
+      </form>
+    </div>
+  </body>
+</html>
