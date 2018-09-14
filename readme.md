@@ -19,3 +19,7 @@
 #### plugin: 向桌面发图文通知
 
 * 该扩展目录名称：/send_notification_message
+
+#### plugin: 抓取网页内容和多类型网页截屏
+
+* 该扩展目录名称：/catch_web_page_content

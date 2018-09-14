@@ -1,0 +1,31 @@
+{
+  "name": "点击触发插件内容",
+  "description": "",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "*://*/*",
+    "unlimitedStorage",
+    "storage",
+    "pageCapture",
+    "tabs",
+    "<all_urls>"
+  ],
+  "background": {
+     "scripts": ["scripts/background.js"],
+     "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.baidu.com/*"], 
+      "js": ["scripts/vue.js","scripts/jquery.js","scripts/content-script.js"],
+      "css" : ["css/bootstrap.min.css"]
+    }
+  ],
+  "browser_action": {
+      "default_title": "Set this page's color.",
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
