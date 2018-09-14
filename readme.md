@@ -1,5 +1,13 @@
 ## 谷歌浏览器扩展开发
 
+### 使用教程
+
+```html
+    git clone https://github.com/RiversCoder/chrome-extension.git
+    cd chrome-extension
+    打开谷歌浏览器 -> 更多工具 -> 扩展程序 -> 打开开发者模式 -> 加载已解压的扩展程序 -> 选择chrome-extension目录下的扩展文件夹
+```
+
 #### 搜索且设置背景图片
 
 * 该扩展目录名称：/set_page_background_image
