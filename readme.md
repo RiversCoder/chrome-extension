@@ -1,6 +1,6 @@
 ## 谷歌浏览器扩展开发
 
-#### plugin: 搜索且设置背景图片
+#### 搜索且设置背景图片
 
 * 该扩展目录名称：/set_page_background_image
 
@@ -8,7 +8,7 @@
 
 ![set_page_background_image_chrome_plugin](/set_page_background_image/screenshoot.png "set_page_background_image_chrome_plugin") 
 
-#### plugin: 清除浏览器缓存
+#### 快速清除浏览器缓存
 
 * 该扩展目录名称：/quick_clear_brower_cache
 
@@ -16,10 +16,10 @@
 
 ![quick_clear_brower_cache_plugin](/quick_clear_brower_cache/screenshoot.png "quick_clear_brower_cache_plugin") 
 
-#### plugin: 向桌面发图文通知
+#### 向桌面发图文通知
 
 * 该扩展目录名称：/send_notification_message
 
-#### plugin: 抓取网页内容和多类型网页截屏
+#### 抓取网页内容和多类型网页截屏
 
 * 该扩展目录名称：/catch_web_page_content
