@@ -1,0 +1,36 @@
+{
+  "name": "网情订阅APP 推荐订阅类专题",
+  "description": "科盾 网情订阅APP 推荐订阅类专题",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "*://*/*",
+    "unlimitedStorage",
+    "storage",
+    "pageCapture",
+    "tabs",
+    "<all_urls>"
+  ],
+  "background": {
+     "scripts": ["scripts/background.js"],
+     "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "run_at": "document_start",
+      "css" : ["scripts/antd/antdesign.css","css/websubscription.css"]
+    },
+    {
+      "matches": ["https://*/*"],
+      "run_at": "document_end",
+      "js": ["scripts/jquery.js","scripts/react/moment.js","scripts/data.js","scripts/content-react.js"]
+    }
+  ],
+  "browser_action": {
+      "default_title": "Set this page's color.",
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+  "manifest_version": 2
+}
