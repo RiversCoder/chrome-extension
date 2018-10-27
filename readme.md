@@ -32,3 +32,11 @@
 #### 抓取网页内容和多类型网页截屏
 
 * 该扩展目录名称：/catch_web_page_content
+
+#### 批量下载网页图片、文件、视频到对应目录，包括链接批量复制
+
+* 该扩展目录名称：/download_all_img
+
+* 该插件预览：
+
+![download_all_img](/download_all_img/images/screenshoot.png "download_all_img") 
