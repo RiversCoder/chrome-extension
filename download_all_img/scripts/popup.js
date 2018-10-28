@@ -44,9 +44,19 @@ class Popup{
     // 添加监听
     addListenRequest() {
         chrome.tabs.sendMessage(this.tabId, {type: this.type},(res)=>{
+            
             this.imgArr = res;
+            //过滤不和规定的视频资源
+            this.filterVideos();
             this.render();
         });
+    }
+
+    //过滤
+    filterVideos(){
+        if(this.type == 'video'){
+            this.imgArr = this.imgArr.filter(v=>v.match(/[^\.]*\.mp4$/g));
+        }
     }
 
     // 添加长连接监听inject脚本 * 改用短链接onMesage方式
@@ -208,12 +218,23 @@ class Popup{
         folderPath = (folderName.length > 0 ? ('download/'+ folderName +'/') : 'download/');
 
         let checkedArr = this.selectChecked();
+        
 
-        this.imgLinks.length > 0 && this.imgLinks.map((v,i)=>{
+        this.imgArr.length > 0 && this.imgArr.map((v,i)=>{
             if(checkedArr[i]){
-                chrome.downloads.download( { url: v , filename: folderPath + info.name+'_'+this.randomStr(10)+'.'+info.suffix} , function(downloadId){
-                    console.log(downloadId);
-                });
+
+                if(this.type == 'video' && v.search('blob') > 0){
+                    var a = document.createElement('a');
+                    document.body.appendChild(a);
+                    a.download = folderPath + info.name+'_'+this.randomStr(10)+'.'+info.suffix;
+                    a.href = window.URL.createObjectURL(v);
+                    a.click();
+                    document.body.removeChild(a);
+                }else{
+                    chrome.downloads.download( { url: v , filename: folderPath + info.name+'_'+this.randomStr(10)+'.'+info.suffix} , function(downloadId){
+                        console.log(downloadId);
+                    });
+                }
             }
         });
     }
